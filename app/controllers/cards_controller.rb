@@ -10,6 +10,7 @@ class CardsController < ApplicationController
       if service.call
         @card = service.card
         format.html { redirect_to board_url(@card.board), notice: "Card was successfully created." }
+        format.turbo_stream
       else
         @card = service.card
         format.html { render :new, status: :unprocessable_entity }
@@ -41,6 +42,7 @@ class CardsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to board_url(board), notice: "Card was successfully destroyed." }
+      format.turbo_stream
     end
   end
 
