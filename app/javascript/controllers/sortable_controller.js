@@ -30,7 +30,12 @@ export default class extends Controller {
         const sortable = Sortable.create(container, {
           group: this.groupValue,
           onEnd: this.onEnd.bind(this),
-          animation: 150
+          animation: 150,
+          delay: 300,
+          delayOnTouchOnly: true,
+          touchStartThreshold: 3,
+          chosenClass: "sortable-chosen",
+          dragClass: "sortable-drag"
         });
         this.sortables.push(sortable);
       }

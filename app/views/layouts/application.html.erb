@@ -22,7 +22,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="<%= 'turbo-native' if turbo_native_app? %>">
     <div class="gradient-background">
       <div class="content-container bg-light">
         <%= yield %>
