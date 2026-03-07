@@ -87,3 +87,19 @@ body, html {
   flex: 1 1 0;      /* grow, shrink, base 0 = even thirds */
   min-width: 0;
 }
+
+// Card drag visual feedback (long-press to drag)
+.card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sortable-chosen .card {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.sortable-drag .card {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  opacity: 0.9;
+}
