@@ -9,3 +9,4 @@ pin "@fortawesome/fontawesome-free", to: "https://cdnjs.cloudflare.com/ajax/libs
 pin_all_from "app/javascript/controllers", under: "controllers"
 pin "@rails/request.js", to: "@rails--request.js.js" # @0.0.12
 pin "sortablejs" # @1.15.6
+pin "@hotwired/hotwire-native-bridge", to: "@hotwired--hotwire-native-bridge.js" # @1.2.2
