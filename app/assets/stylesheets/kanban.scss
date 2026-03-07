@@ -3,6 +3,14 @@ body, html {
   margin: 0;
   padding: 0;
   overflow: hidden;
+
+  // On mobile, allow document-level scrolling so the native
+  // WebView scroll view can detect the drag and trigger pull-to-refresh.
+  @media (max-width: 575.98px) {
+    height: auto;
+    min-height: 100%;
+    overflow: visible;
+  }
 }
 
 .gradient-background {
@@ -13,6 +21,11 @@ body, html {
   align-items: center;
   padding: 5vh 5vw;
   box-sizing: border-box;
+
+  @media (max-width: 575.98px) {
+    padding: 0;
+    align-items: flex-start;
+  }
 }
 
 .content-container {
@@ -24,6 +37,18 @@ body, html {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  // On mobile, let the container grow with its content so the document
+  // scrolls (not the div). This gives the native scroll view a chance
+  // to intercept the top-of-page drag for pull-to-refresh.
+  @media (max-width: 575.98px) {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+    padding: 10px;
+    box-shadow: none;
+  }
 }
 
 .board-container {
@@ -48,6 +73,10 @@ body, html {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: #EFF0F1;
   border: 1px solid #DFE1E3;
+
+  @media (max-width: 575.98px) {
+    width: 85vw;
+  }
 }
 
 .board-column-footer {
