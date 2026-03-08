@@ -103,3 +103,16 @@ body, html {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   opacity: 0.9;
 }
+
+// Hotwire Native: hide elements that are replaced by native UI
+.turbo-native {
+  // Hide the "New Board" button — replaced by the native toolbar button (ButtonComponent)
+  [data-controller="bridge--button"] {
+    display: none;
+  }
+
+  // Hide page headers — title and actions are shown in the native toolbar instead
+  .boards-header {
+    display: none;
+  }
+}
