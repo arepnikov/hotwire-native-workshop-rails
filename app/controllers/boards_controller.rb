@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: %i[ show edit update destroy ]
-  before_action :set_native_variant, if: -> { turbo_native_app? }, only: %i[ create ]
+  before_action :set_native_variant, if: -> { turbo_native_app? }, only: %i[ new create ]
 
   def index
     @boards = Board.all.includes(board_columns: :cards)

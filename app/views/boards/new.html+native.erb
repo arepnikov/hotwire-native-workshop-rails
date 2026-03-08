@@ -1,0 +1,22 @@
+<% content_for :title, "New Board" %>
+
+<%= form_for @board,
+      data: {
+        controller: "bridge--form",
+        action: "turbo:submit-start->bridge--form#submitStart turbo:submit-end->bridge--form#submitEnd",
+        turbo_frame: "_top"
+      } do |form| %>
+
+  <% if @board.errors.any? %>
+    <% @board.errors.full_messages.each do |message| %>
+      <p class="text-center text-orange-600"><%= message %></p>
+    <% end %>
+  <% end %>
+
+  <div class="px-3 py-2">
+    <%= form.text_field :name, placeholder: 'Board name', class: 'form-control w-100' %>
+  </div>
+
+  <%= form.submit 'Save', class: 'd-none',
+        data: { bridge__form_target: "submit", bridge_title: "Save" } %>
+<% end %>
