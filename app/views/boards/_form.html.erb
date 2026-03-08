@@ -1,4 +1,4 @@
-<%= form_for @board, class: 'col-12' do |form| %>
+<%= form_for @board, class: 'col-12', data: ({ turbo_frame: '_top' } if turbo_native_app?) do |form| %>
   <% if @board.errors.any? %>
     <% @board.errors.full_messages.each do |message| %>
       <p class="text-center text-orange-600">
