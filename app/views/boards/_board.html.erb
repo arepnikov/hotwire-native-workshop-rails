@@ -23,7 +23,7 @@
         <%= "Columns: #{board.board_columns.size}" %>
         </p>
         <p>
-        <%= "Cards: #{board.board_columns.joins(:cards).count}" %>
+        <%= "Cards: #{board.board_columns.sum { |bc| bc.cards.size }}" %>
         </p>
       </div>
     </div>
