@@ -5,7 +5,12 @@
     <h1 class="text-center flex-grow-1 text-primary-dark-500">Boards</h1>
     <div class="flex-grow-1 equal d-flex justify-content-end">
       <%= turbo_frame_tag dom_id(Board.new) do %>
-        <%= link_to 'New Board', new_board_path, class: 'btn btn-outline-primary' %>
+        <%= link_to 'New Board', new_board_path,
+                    class: 'btn btn-outline-primary',
+                    data: {
+                      controller: "bridge--button",
+                      bridge_title: "New Board",
+                    } %>
       <% end %>
     </div>
   </div>
