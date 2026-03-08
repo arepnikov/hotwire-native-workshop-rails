@@ -1,4 +1,10 @@
-<%= form_for @board, class: 'col-12', data: ({ turbo_frame: '_top' } if turbo_native_app?) do |form| %>
+<%= form_for @board,
+            class: 'col-12',
+            data: {
+              controller: "bridge--form",
+              action: "turbo:submit-start->bridge--form#submitStart turbo:submit-end->bridge--form#submitEnd",
+              **(turbo_native_app? ? { turbo_frame: "_top" } : {})
+            } do |form| %>
   <% if @board.errors.any? %>
     <% @board.errors.full_messages.each do |message| %>
       <p class="text-center text-orange-600">
@@ -17,7 +23,12 @@
     <div class="col d-flex align-items-end">
       <div class="actions mb-2 text-center">
         <%= link_to 'Cancel', boards_path, class: 'btn btn-outline-info' %>
-        <%= form.submit 'Save', class: 'btn btn-outline-primary' %>
+        <%= form.submit 'Save',
+                        class: 'btn btn-outline-primary',
+                        data: {
+                          bridge__form_target: "submit",
+                          bridge_title: "Save",
+                        } %>
       </div>
     </div>
   </div>
