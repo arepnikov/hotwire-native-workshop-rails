@@ -10,6 +10,7 @@
                     data: {
                       controller: "bridge--button",
                       bridge_title: "New Board",
+                      **(turbo_native_app? ? { turbo_frame: "_top" } : {})
                     } %>
       <% end %>
     </div>
